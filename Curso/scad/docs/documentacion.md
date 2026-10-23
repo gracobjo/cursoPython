@@ -475,19 +475,19 @@ graph TB
         TESTS["test_*.py<br/>pytest + TestClient"]
     end
 
-    MAIN --> MODELS : importa modelos
-    MAIN --> AUTH : depende auth
-    MAIN --> LOG : usa logger
-    MAIN --> EVAL : delega evaluación
-    MAIN --> SCHEMAS : usa DTOs
-    MAIN --> TEMPLATES : renderiza
-    MAIN --> STATIC : sirve CSS
-    MODELS --> DB : create_all + Session
-    EVAL --> MODELS : consulta Aviso
-    AUTH --> MODELS : (sin dependencia directa)
-    TESTS --> CONF : usa fixtures
-    CONF --> MAIN : importa app
-    CONF --> MODELS : override get_session
+    MAIN -->|importa modelos| MODELS
+    MAIN -->|depende auth| AUTH
+    MAIN -->|usa logger| LOG
+    MAIN -->|delega evaluación| EVAL
+    MAIN -->|usa DTOs| SCHEMAS
+    MAIN -->|renderiza| TEMPLATES
+    MAIN -->|sirve CSS| STATIC
+    MODELS -->|create_all + Session| DB
+    EVAL -->|consulta Aviso| MODELS
+    AUTH -->|sin dependencia directa| MODELS
+    TESTS -->|usa fixtures| CONF
+    CONF -->|importa app| MAIN
+    CONF -->|override get_session| MODELS
 ```
 
 ### 5.4 Diagrama de Despliegue
