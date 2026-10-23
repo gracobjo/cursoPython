@@ -1,0 +1,18 @@
+<div id="contenedor-avisos" class="lista-avisos">
+    {% if avisos %}
+        {% for aviso in avisos %}
+        <article class="tarjeta-aviso">
+            <h3>{{ aviso.titulo }}</h3>
+            <div class="meta">
+                <span>Destino: <strong>{{ aviso.destino }}</strong> ({{ aviso.tipo_destino }})</span>
+                <span> | Creado: {{ aviso.fecha_inicio.strftime('%Y-%m-%d %H:%M') if aviso.fecha_inicio else 'Reciente' }}</span>
+            </div>
+            <div class="cuerpo-aviso">
+                {{ aviso.contenido_md | markdown | safe }}
+            </div>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>No hay avisos activos para el filtro seleccionado.</p>
+    {% endif %}
+</div>

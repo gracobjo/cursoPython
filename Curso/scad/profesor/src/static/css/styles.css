@@ -1,0 +1,99 @@
+/* SCAD - Tablón de Avisos de Dominio */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #1a237e, #283593);
+    color: #fff;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 1.6rem;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #1a237e;
+}
+
+.lista-avisos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tarjeta-aviso {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #1976d2;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.tarjeta-aviso:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta-aviso h3 {
+    color: #1a237e;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-aviso .meta {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.cuerpo-aviso {
+    color: #444;
+    line-height: 1.7;
+}
+
+.cuerpo-aviso code {
+    background: #eef1f5;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #999;
+    font-size: 0.85rem;
+    margin-top: 3rem;
+}
+
+label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+select {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}

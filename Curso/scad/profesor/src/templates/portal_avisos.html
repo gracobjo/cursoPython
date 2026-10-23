@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Avisos - SCAD</title>
+    <!-- Hoja de Estilos Unificada SCAD -->
+    <link rel="stylesheet" href="/static/css/scad.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>📢 SCAD Portal</h1>
+            <div class="usuario-tag">
+                Usuario: <strong>{{ usuario }}</strong> {% if equipo %}({{ equipo }}){% endif %}
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Notificaciones Vigentes</h2>
+        {% if avisos %}
+            <div class="lista-avisos">
+                {% for aviso in avisos %}
+                <article class="tarjeta-aviso {{ aviso.importancia | lower }}">
+                    <div class="tarjeta-header">
+                        <h3>{{ aviso.titulo }}</h3>
+                        {% if aviso.importancia %}
+                        <span class="badge {{ aviso.importancia | lower }}">{{ aviso.importancia }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="meta">
+                        Publicado: <strong>{{ aviso.fecha_inicio.strftime('%d/%m/%Y %H:%M') if aviso.fecha_inicio else 'Reciente' }}</strong>
+                    </div>
+                    <!-- Renderizado seguro de HTML generado desde Markdown -->
+                    <div class="cuerpo-aviso">
+                        {{ aviso.contenido_html | safe }}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="estado-vacio">
+                <h3>Sin avisos pendientes</h3>
+                <p>No hay notificaciones activas asignadas a tu cuenta o equipo en este momento.</p>
+            </div>
+        {% endif %}
+    </main>
+    <footer>
+        SCAD &copy; 2026 - Sistema Centralizado de Avisos de Dominio
+    </footer>
+</body>
+</html>

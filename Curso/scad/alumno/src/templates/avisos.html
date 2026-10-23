@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block titulo %}Avisos Activos - SCAD{% endblock %}
+{% block contenido %}
+<h2>Avisos Vigentes</h2>
+<!-- Filtro HTMX -->
+<div style="margin-bottom: 1.5rem;">
+    <label for="filtro-destino">Filtrar por Destino (AD):</label>
+    <select
+        id="filtro-destino"
+        name="destino"
+        hx-get="/"
+        hx-target="#contenedor-avisos"
+        hx-swap="outerHTML"
+        hx-trigger="change"
+    >
+        <option value="">-- Todos los destinos --</option>
+        <option value="TODOS" {% if destino_actual == 'TODOS' %}selected{% endif %}>TODOS</option>
+        <option value="AULA_101" {% if destino_actual == 'AULA_101' %}selected{% endif %}>AULA_101</option>
+        <option value="AULA_102" {% if destino_actual == 'AULA_102' %}selected{% endif %}>AULA_102</option>
+        <option value="ALUMNOS_ESO" {% if destino_actual == 'ALUMNOS_ESO' %}selected{% endif %}>ALUMNOS_ESO</option>
+    </select>
+</div>
+<!-- Contenedor dinámico que será reemplazado por HTMX -->
+{% include "_lista_avisos.html" %}
+{% endblock %}
