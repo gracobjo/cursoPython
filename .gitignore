@@ -1,0 +1,8 @@
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+
+*.pdf
+syslogon/informacion.json
+syslogon/logs/
