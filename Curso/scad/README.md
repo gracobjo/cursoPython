@@ -7,7 +7,7 @@ Proyecto del curso **Introducción a la programación web con Python + FastAPI**
 - **Gestor de proyecto:** uv (Astral)
 - **Backend:** FastAPI + SQLModel (ORM) + SQLite
 - **Frontend:** HTML, CSS, JavaScript, HTMX con Jinja2 (Markdown → HTML en servidor)
-- **Testing:** pytest con httpx / TestClient
+- **Testing:** pytest con httpx2 / TestClient
 - **Cliente Logon:** Script de inicio que invoca la API y lanza el navegador
 
 ## Estructura
